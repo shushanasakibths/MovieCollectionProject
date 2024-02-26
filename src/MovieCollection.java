@@ -22,6 +22,7 @@ public class MovieCollection {
     private void importDataFromCSV() {
         try {
             Scanner fileScanner = new Scanner(new File("src\\movies_data.csv"));
+            fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] movieData = fileScanner.nextLine().split(",");
                 Movie movie = new Movie(movieData[0], movieData[1].split("\\|"), movieData[2], movieData[3], Integer.parseInt(movieData[4]), Double.parseDouble(movieData[5]));
@@ -54,6 +55,7 @@ public class MovieCollection {
             } else {
                 System.out.println("Invalid choice!");
             }
+            System.out.println();
         }
     }
     private void searchTitles() {
@@ -90,6 +92,7 @@ public class MovieCollection {
 
         System.out.print("Which movie would you like to learn ore about?\nEnter number: ");
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         if (choice < 1 || choice > matchedMovies.size()) {
             System.out.println("Invalid choice.");
@@ -100,7 +103,7 @@ public class MovieCollection {
         System.out.println("Title: " + selectedMovie.getTitle());
         System.out.println("Runtime: " + selectedMovie.getRuntime() + " minutes");
         System.out.println("Director: " + selectedMovie.getDirector());
-        System.out.println("Cast: " + selectedMovie.getCast());
+        System.out.println("Cast: " + selectedMovie.getCastMembers());
         System.out.println("Overview: " + selectedMovie.getOverview());
         System.out.println("User Rating: " + selectedMovie.getUserRating());
     }
@@ -151,6 +154,7 @@ public class MovieCollection {
 
         System.out.print("Which would you like to see all movies for?\nEnter number: ");
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         if (choice < 1 || choice > matchedCount) {
             System.out.println("Invalid choice.");
@@ -186,6 +190,7 @@ public class MovieCollection {
 
             System.out.print("Which movie would you like to learn more about?\nEnter number: ");
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             if (choice < 1 || choice > movieCount) {
                 System.out.println("Invalid choice.");
@@ -205,7 +210,7 @@ public class MovieCollection {
                 System.out.println("Title: " + selectedMovie.getTitle());
                 System.out.println("Runtime: " + selectedMovie.getRuntime() + " minutes");
                 System.out.println("Director: " + selectedMovie.getDirector());
-                System.out.println("Cast: " + selectedMovie.getCast());
+                System.out.println("Cast: " + selectedMovie.getCastMembers());
                 System.out.println("Overview: " + selectedMovie.getOverview());
                 System.out.println("User Rating: " + selectedMovie.getUserRating());
             } else {

@@ -24,6 +24,14 @@ public class Movie {
         return cast;
     }
 
+    public String getCastMembers() {
+        String members = "";
+        for (String name : cast) {
+            members += name + " | ";
+        }
+        return members;
+    }
+
     public String getDirector() {
         return director;
     }
